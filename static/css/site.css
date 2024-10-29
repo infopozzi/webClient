@@ -1,0 +1,9 @@
+label {
+    font-weight: bold;
+  
+}
+
+tbody > tr:hover
+{
+    background-color: dodgerblue;
+}
