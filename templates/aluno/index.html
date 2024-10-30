@@ -4,6 +4,8 @@
 
 <h2> Cadastro de Aluno/Listar </h2>
 
+<hr/>
+
 <div class="row">
     <a class="btn btn-primary" href="cadastrar">Cadastrar</a>
 </div>
@@ -13,8 +15,12 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Nome</th>
-        <th scope="col">Endereço</th>
+        <th scope="col">idade</th>
         <th scope="col">Turma</th>
+        <th scope="col">Data de nascimento</th>
+        <th scope="col">Nota do primeiro semestre</th>
+        <th scope="col">Nota do segundo semestre</th>
+        <th scope="col">Média final</th>
         <th scope="col">Ação</th>
       </tr>
     </thead>
@@ -24,8 +30,12 @@
         <tr>
             <th scope="row">{{aluno.id}}</th>
             <td>{{aluno.nome}}</td>
-            <td>{{aluno.endereco}}</td>
+            <td>{{aluno.idade}}</td>
             <td>{{aluno.turma_nome}}</td>
+            <td>{{aluno.data_nascimento}}</td>
+            <td>{{aluno.nota_primeiro_semestre}}</td>
+            <td>{{aluno.nota_segundo_semestre}}</td>
+            <td>{{aluno.media_final}}</td>
 
             <td> <a class="btn btn-warning" href="obter/{{aluno.id}}">Alterar</a>                
                 <form action="excluir" method="POST">

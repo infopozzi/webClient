@@ -8,5 +8,5 @@ app.config['PORT'] = 5000
 app.config['DEBUG'] = True
 
 app.config['HOST_API'] = '0.0.0.0'
-app.config['PORT_API'] = 8080
+
 

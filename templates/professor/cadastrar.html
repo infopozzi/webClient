@@ -5,20 +5,33 @@
 <form action="{{url_for('professor.salvar')}}" method="POST">
     <h2> Cadastro de Professor/Cadastro </h2>
 
+    <hr/>
+
     <div class="row">
         <input type="hidden" name="id" id="id" value="{{professor.id}}"  />
 
-        <div class="form-group">
+        <div class="col-md-9 form-group">
             <label class="control-label">Nome</label>
             <input class="form-control" type="text" name="nome" id="nome" value="{{professor.nome}}" required />
         </div>
     
-         <div class="form-group">
-            <label class="control-label">Endereço</label>
-            <input class="form-control" type="text" name="endereco" id="endereco" value="{{professor.endereco}}" required />
+         <div class="col-md-3 form-group">
+            <label class="control-label">Idade</label>
+            <input class="form-control" type="number" name="idade" id="idade" value="{{professor.idade}}" required />
         </div>
 
+        <div class="col-md-6 form-group">
+            <label class="control-label">Matéria</label>
+            <input class="form-control" type="text" name="materia" id="materia" value="{{professor.materia}}" required />
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label class="control-label">Observação</label>
+            <input class="form-control" type="text" name="observacao" id="observacao" value="{{professor.observacao}}" required />
+        </div>
     </div>    
+
+    <hr/>
 
     <div class="row">
         <input type="submit" class="btn btn-success" id="btnset" value="Salvar" /> 
@@ -31,13 +44,6 @@
 function buscar()
 {
     debugger
-
-
-
-
-
-    
-
     /*
     fetch('http://127.0.0.1:8080/bucar/1')
   .then(response => response.json())
@@ -48,12 +54,10 @@ function buscar()
 
 function salvar()
 {
-
     fetch('http://127.0.0.1:8080/salvar', { method: 'POST', headers : { 'Content-Type': 'application/json' }, body:  JSON.stringify({ nome: "mateus"}) })
   .then(response => response.json())
   .then(data => {alert(data.message)})
   .catch(error => console.error('Erro na requisição:', error));
-
 
 /*
     const data = {

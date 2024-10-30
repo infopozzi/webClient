@@ -4,6 +4,8 @@
 
 <h2> Cadastro de Professor/Listar </h2>
 
+<hr/>
+
 <div class="row">
     <a class="btn btn-primary" href="cadastrar">Cadastrar</a>
 </div>
@@ -13,7 +15,9 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Nome</th>
-        <th scope="col">Endereço</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Matéria</th>
+        <th scope="col">Observação</th>
         <th scope="col">Ação</th>
       </tr>
     </thead>
@@ -23,7 +27,9 @@
         <tr>
             <th scope="row">{{professor.id}}</th>
             <td>{{professor.nome}}</td>
-            <td>{{professor.endereco}}</td>
+            <td>{{professor.idade}}</td>
+            <td>{{professor.materia}}</td>
+            <td>{{professor.observacao}}</td>
             
             <td> <a class="btn btn-warning" href="obter/{{professor.id}}">Alterar</a>                
                 <form action="excluir" method="POST">

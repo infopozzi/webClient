@@ -24,10 +24,13 @@ def cadastrar():
 
 @professores_blueprint.route("/salvar", methods=["POST"])
 def salvar():
-    id = int(request.form["id"])
-    nome = request.form["nome"]
-    endereco = request.form["endereco"]
-    payload = {"id": id, "nome": nome, "endereco": endereco}
+  
+    payload = {"id": int(request.form["id"]), 
+               "nome": request.form["nome"], 
+               "idade":  int(request.form["idade"]),
+               "materia": request.form["materia"],
+               "observacao":request.form["observacao"]
+              }
     
     retorno = requests.post(f"{url}/professor/salvar", json = payload)
 
@@ -40,9 +43,7 @@ def salvar():
 
 @professores_blueprint.route("/excluir", methods=["POST"])
 def excluir():
-    id = int(request.form["id"])
-
-    payload = {"id": id }
+    payload = {"id": int(request.form["id"]) }
     retorno = requests.post(f"{url}/professor/excluir", json = payload)
 
     if (retorno.status_code == 200):

@@ -21,15 +21,23 @@ def obter(id):
 @turmas_blueprint.route("/cadastrar", methods=["GET"])
 def cadastrar():
     lista_professor = requests.get(f'{url}/professor/listar')
-    return render_template("turma/cadastrar.html", turma = { "id": 0, "nome": "", "endereco": ""}, professores = lista_professor.json())
+
+    payload = {"id": 0,
+               "descricao": "",
+               "professor_id": 0, 
+               "ativo": True
+              }
+    
+    return render_template("turma/cadastrar.html", turma = payload, professores = lista_professor.json())
 
 @turmas_blueprint.route("/salvar", methods=["POST"])
 def salvar():
-    id = int(request.form["id"])
-    nome = request.form["nome"]
-    endereco = request.form["endereco"]
-    professor_id = int(request.form["professor_id"])
-    payload = {"id": id, "nome": nome, "endereco": endereco, "professor_id": professor_id}
+
+    payload = {"id": int(request.form["id"]),
+                "descricao": request.form["descricao"],
+                "professor_id": int(request.form["professor_id"]), 
+                "ativo": bool(request.form["ativo"])
+              }
     
     retorno = requests.post(f"{url}/turma/salvar", json = payload)
 

@@ -4,30 +4,55 @@
 
 <form action="{{url_for('aluno.salvar')}}" method="POST">
     <h2> Cadastro de Aluno/Cadastro </h2>
+    
+    <hr/>
 
     <div class="row">
+
         <input type="hidden" name="id" id="id" value="{{aluno.id}}"  />
 
-        <div class="form-group">
+        <div class="col-md-9 form-group">
             <label class="control-label">Nome</label>
             <input class="form-control" type="text" name="nome" id="nome" value="{{aluno.nome}}" required />
         </div>
     
-         <div class="form-group">
-            <label class="control-label">Endereço</label>
-            <input class="form-control" type="text" name="endereco" id="endereco" value="{{aluno.endereco}}" required />
+        <div class="col-md-3 form-group">
+            <label class="control-label">Idade</label>
+            <input disabled class="form-control" type="text" name="idade" id="idade" value="{{aluno.idade}}" required />
         </div>
-    
-        <div class="form-group">
+
+        <div class="col-md-6 form-group">
+            <label class="control-label">Data de nascimento</label>
+            <input class="form-control" type="date" name="data_nascimento" id="data_nascimento" value="{{aluno.data_nascimento_}}" required />
+        </div>
+
+        <div class="col-md-6 form-group">
             <label class="control-label" name="ddlTurma" id="ddlTurma">Turma</label>
             <select class="form-control" name="turma_id" id="turma_id" required>
                 <option value="0">--Selecione--</option>
                 {% for turma in turmas %}
-                    <option value="{{turma.id}}" selected = {{aluno.turma_id == turma.id}}>{{turma.nome}} - {{turma.endereco}}</option>
+                    <option value="{{turma.id}}" selected = {{aluno.turma_id == turma.id}}>{{turma.descricao}}</option>
                 {% endfor %}
             </select>
         </div>
+
+        <div class="col-md-4 form-group">
+            <label class="control-label">Nota do primeiro semestre</label>
+            <input class="form-control" type="text" name="nota_primeiro_semestre" id="nota_primeiro_semestre" value="{{aluno.nota_primeiro_semestre}}" />
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label class="control-label">Nota do segundo semestre</label>
+            <input class="form-control" type="text" name="nota_segundo_semestre" id="nota_segundo_semestre" value="{{aluno.nota_segundo_semestre}}" />
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label class="control-label">Média final</label>
+            <input disabled class="form-control" type="text" name="media_final" id="media_final" value="{{aluno.media_final}}" />
+        </div>
     </div>    
+
+    <hr/>
 
     <div class="row">
         <input type="submit" class="btn btn-success" id="btnset" value="Salvar" /> 

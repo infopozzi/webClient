@@ -22,16 +22,26 @@ def obter(id):
 @alunos_blueprint.route("/cadastrar", methods=["GET"])
 def cadastrar():
     lista_turma = requests.get(f'{url}/turma/listar')
-    return render_template("aluno/cadastrar.html", aluno = { "id": 0, "nome": "", "endereco": ""}, turmas = lista_turma.json())
+    payload = {"id": 0, 
+               "nome": "", 
+               "idade": 0,
+               "turma_id": 0,
+               "data_nascimento": "",
+               "nota_primeiro_semestre": 0,
+               "nota_segundo_semestre": 0
+              } 
+    
+    return render_template("aluno/cadastrar.html", aluno = payload, turmas = lista_turma.json())
 
 @alunos_blueprint.route("/salvar", methods=["POST"])
 def salvar():
-    id = int(request.form["id"])
-    nome = request.form["nome"]
-    endereco = request.form["endereco"]
-    turma_id = int(request.form["turma_id"])
-    payload = {"id": id, "nome": nome, "endereco": endereco, "turma_id": turma_id}
-    
+    payload = {"id": int(request.form["id"]), 
+               "nome": request.form["nome"], 
+               "turma_id": int(request.form["turma_id"]),
+               "data_nascimento": request.form["data_nascimento"],
+               "nota_primeiro_semestre": float(request.form["nota_primeiro_semestre"]),
+               "nota_segundo_semestre": float(request.form["nota_segundo_semestre"])
+               }    
     retorno = requests.post(f"{url}/aluno/salvar", json = payload)
 
     if (retorno.status_code == 200):
