@@ -9,13 +9,8 @@
     
     <div class="row">
         <input type="hidden" name="id" id="id" value="{{turma.id}}"  />
-
-        <div class="col-md-6 form-group">
-            <label class="control-label">Nome</label>
-            <input class="form-control" type="text" name="nome" id="nome" value="{{turma.nome}}" required />
-        </div>
     
-         <div class="col-md-6 form-group">
+        <div class="col-md-6 form-group">
             <label class="control-label">Descrição</label>
             <input class="form-control" type="text" name="descricao" id="descricao" value="{{turma.descricao}}" required />
         </div>
@@ -32,8 +27,9 @@
 
         <div class="col-md-6 form-group">
             <label class="control-label">Ativo</label><br/>
-            <input class="form-check-input" type="checkbox" name="ativo" id="ativo" checked="{{turma.ativo}}" />
-        </div>
+            <input class="form-check-input" type="checkbox" name="ativo" id="ativo" 
+            {% if turma.ativo %}checked{% endif %} />
+             </div>
 
     </div>   
 

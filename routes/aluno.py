@@ -27,8 +27,8 @@ def cadastrar():
                "idade": 0,
                "turma_id": 0,
                "data_nascimento": "",
-               "nota_primeiro_semestre": 0,
-               "nota_segundo_semestre": 0
+               "nota_primeiro_semestre": "",
+               "nota_segundo_semestre": ""
               } 
     
     return render_template("aluno/cadastrar.html", aluno = payload, turmas = lista_turma.json())
@@ -39,8 +39,8 @@ def salvar():
                "nome": request.form["nome"], 
                "turma_id": int(request.form["turma_id"]),
                "data_nascimento": request.form["data_nascimento"],
-               "nota_primeiro_semestre": float(request.form["nota_primeiro_semestre"]),
-               "nota_segundo_semestre": float(request.form["nota_segundo_semestre"])
+               "nota_primeiro_semestre": request.form["nota_primeiro_semestre"],
+               "nota_segundo_semestre": request.form["nota_segundo_semestre"]
                }    
     retorno = requests.post(f"{url}/aluno/salvar", json = payload)
 

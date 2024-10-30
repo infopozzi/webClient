@@ -36,7 +36,7 @@ def salvar():
     payload = {"id": int(request.form["id"]),
                 "descricao": request.form["descricao"],
                 "professor_id": int(request.form["professor_id"]), 
-                "ativo": bool(request.form["ativo"])
+                "ativo": "ativo" in request.form
               }
     
     retorno = requests.post(f"{url}/turma/salvar", json = payload)
