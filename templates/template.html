@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>My test page</title>
+    <title>Sistema Escola</title>
 
     <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/site.css')}}">
@@ -20,9 +20,9 @@
             </div>
         {% endfor %}
 
-        <h1>template padrão</h1>
+        <h1 class="bg-light text-center text-primary">Sistema de Gestão Escolar</h1>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-info bg-info">
             <a class="navbar-brand" href="{{url_for('inicio.index')}}">Escola</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -38,16 +38,10 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('professor.index') }}">Cadastro de Professor</a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('login.sair') }}">Sair</a>
                 </li>
+
               </ul>
             </div>
           </nav>
