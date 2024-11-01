@@ -39,7 +39,10 @@ def salvar():
                 "ativo": "ativo" in request.form
               }
     
-    retorno = requests.post(f"{url}/turma/salvar", json = payload)
+    if (payload["id"] == 0):
+        retorno = requests.post(f"{url}/turma/salvar", json = payload)
+    else: 
+        retorno = requests.post(f"{url}/turma/alterar", json = payload)
 
     if (retorno.status_code == 200):
         dados = retorno.json()

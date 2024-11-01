@@ -41,8 +41,12 @@ def salvar():
                "data_nascimento": request.form["data_nascimento"],
                "nota_primeiro_semestre": request.form["nota_primeiro_semestre"],
                "nota_segundo_semestre": request.form["nota_segundo_semestre"]
-               }    
-    retorno = requests.post(f"{url}/aluno/salvar", json = payload)
+               }   
+
+    if (payload["id"] == 0):
+        retorno = requests.post(f"{url}/aluno/salvar", json = payload)
+    else: 
+        retorno = requests.post(f"{url}/aluno/alterar", json = payload)
 
     if (retorno.status_code == 200):
         dados = retorno.json()
